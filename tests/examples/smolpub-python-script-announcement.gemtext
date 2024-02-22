@@ -1,0 +1,15 @@
+# I wrote a python script to upload articles to smol.pub
+
+I wrote a python script to upload articles to smol.pub that can replace the smolpub.sh bash script.
+
+It's still a work-in-progress, but so far it works both for posting new articles and for updating existing articles.
+In fact, I posted this same announcement using my own script.
+
+It requires Python 3.7 or higher, and requires that you have a copy of the library "requests" installed.
+Plus, just like smolpub.sh, it requires that you have your personal token string written in a file called .smolpub under ~/.config/
+
+If you want try it and tell me if it works or not.
+
+=> https://gist.github.com/fmaida/349722add0a88f0f749e38715f7ffdd8 This is the python script, hosted on GitHub
+
+Cheers!

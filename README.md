@@ -11,13 +11,13 @@ For further information about smol.pub, please visit <https://smol.pub/manual>
 1. Open your terminal 
 2. Clone this repository or download a copy of it
 3. Change directory to the repository directory
-4. Use the command `pip install -e .` to install it
+4. Use the command `pip install .` to install it
 
 *Example:*
 ```sh
 /home/example $ git clone https://github.com/fmaida/smolpub
 /home/example $ cd smolpub
-/home/example/smolpub $ pip install -e .
+/home/example/smolpub $ pip install .
 ```
 
 ## How to invoke this tool from the command line

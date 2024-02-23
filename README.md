@@ -13,9 +13,9 @@ For further information about smol.pub, please visit <https://smol.pub/manual>
 
 *Example:*
 ```sh
-/Home/example $ git clone https://github.com/fmaida/smol.pub
-/Home/example $ cd smol.pub
-/Home/example/smol.pub $ pip install -e .
+/home/example $ git clone https://github.com/fmaida/smol.pub
+/home/example $ cd smol.pub
+/home/example/smol.pub $ pip install -e .
 ```
 
 ## How to invoke this utility

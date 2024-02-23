@@ -13,14 +13,14 @@ For further information about smol.pub, please visit <https://smol.pub/manual>
 
 *Example:*
 ```sh
-/home/example $ git clone https://github.com/fmaida/smol.pub
+/home/example $ git clone https://github.com/fmaida/smolpub
 /home/example $ cd smol.pub
-/home/example/smol.pub $ pip install -e .
+/home/example/smolpub $ pip install -e .
 ```
 
 ## How to invoke this utility
 
-In your terminal, enter the command:
+In your terminal, from any folder you can enter the command:
 
 ```sh
 $ smolpub <article-to-upload>
@@ -33,6 +33,16 @@ Where `<article-to-upload>` is a valid path to a text file on your computer.
 $ printf "# This is a test article\n\nHello world, this is the body" > article.gemtext
 $ smolpub article.gemtext
 ```
+
+The script will extract this data from your text file:
+
+1. **Article title.** Will be extracted from the very first line in your text file
+2. **Article slug.** Will be extracted from your text file name, file extension excluded.
+3. **Article body.** Will be extracted starting from the third line on in your text file
+
+If the provided text file exists and has a valid structure (see below), the article contained 
+in the text file will be uploaded to <https://smol.pub> as a new article or (if an article 
+with the same slug already exists) will replace the previous article with the same slug.
 
 ## Requirements
 

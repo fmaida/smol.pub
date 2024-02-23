@@ -1,8 +1,7 @@
 # Upload your articles to smol.pub
 
-This is a Python script that will allow you to upload your articles to <https://smol.pub> 
-directly from your terminal.
-For further information about smol.pub, please visit <https://smol.pub/manual>
+**This is a Python script that will allow you to upload your articles to <https://smol.pub> 
+directly from your computer terminal.** For further information about smol.pub, please visit <https://smol.pub/manual>
 
 ## How to install this utility
 

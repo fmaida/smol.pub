@@ -23,15 +23,15 @@ For further information about smol.pub, please visit <https://smol.pub/manual>
 In your terminal, enter the command:
 
 ```sh
-smolpub <article-to-upload>
+$ smolpub <article-to-upload>
 ```
 
 Where `<article-to-upload>` is a valid path to a text file on your computer.
 
 *Example:*
 ```sh
-printf "# This is a test article\n\nHello world, this is the body" > article.gemtext
-smolpub article.gemtext
+$ printf "# This is a test article\n\nHello world, this is the body" > article.gemtext
+$ smolpub article.gemtext
 ```
 
 ## Requirements

@@ -1,5 +1,5 @@
 from pathlib import Path
-from os.path import basename, isfile
+from os.path import basename, dirname, isfile
 import subprocess
 import sys
 import re
@@ -120,7 +120,7 @@ def app():
     # Check that the user has provided the 
     # correct number of arguments
     if len(sys.argv) < 2:
-        print(f"Usage: {basename(__file__)} <file>")
+        print(f"Usage: {basename(dirname(__file__))} <file>")
         sys.exit(1)
 
     # Load the article from the file and verifies its vailidity

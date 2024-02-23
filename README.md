@@ -1,4 +1,4 @@
-# Upload your articles on smol.pub
+# Upload your articles to smol.pub
 
 This is a Python script that will allow you to upload your articles to <https://smol.pub> 
 directly from your terminal.

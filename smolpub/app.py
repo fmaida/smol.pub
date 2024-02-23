@@ -10,7 +10,9 @@ import re
 try:
     import requests
 except ModuleNotFoundError:
-    print("'Requests' Library not found. Please install requests.")
+    print("'Requests' Library was not found. "
+          + "Please install requests.",
+          file=sys.stderr)
     sys.exit(1)
 
 
@@ -130,7 +132,7 @@ def app():
     if is_valid:    
         upload_article(title=title, slug=slug, content=content)
     else:
-        print(f"\"{sys.argv[1]}\" is not a valid article. "
+        print(f"\"{sys.argv[1]}\" does not contain a valid article. "
               + f"A valid article must begin with a '#' symbol "
               + f"and have an empty second line.",
               file=sys.stderr)

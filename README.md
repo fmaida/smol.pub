@@ -13,7 +13,7 @@ directly from your computer terminal.** For further information about smol.pub, 
 *Example:*
 ```sh
 /home/example $ git clone https://github.com/fmaida/smolpub
-/home/example $ cd smol.pub
+/home/example $ cd smolpub
 /home/example/smolpub $ pip install -e .
 ```
 

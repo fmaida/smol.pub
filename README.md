@@ -36,9 +36,9 @@ $ smolpub article.gemtext
 
 The script will extract this data from your text file:
 
-1. **Article title.** Will be extracted from the very first line in your text file
+1. **Article title.** Will be extracted from the very first line in your text file.
 2. **Article slug.** Will be extracted from your text file name, file extension excluded.
-3. **Article body.** Will be extracted starting from the third line on in your text file
+3. **Article body.** Will be extracted starting from the third line on in your text file.
 
 If the provided text file exists and has a valid structure (see below), the article contained 
 in the text file will be uploaded to <https://smol.pub> as a new article or (if an article 

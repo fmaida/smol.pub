@@ -33,7 +33,7 @@ $ printf "# This is a test article\n\nHello world, this is the body" > article.g
 $ smolpub article.gemtext
 ```
 
-The script will extract this data from your text file:
+The tool will extract this data from your text file:
 
 1. **Article title.** Will be extracted from the very first line in your text file.
 2. **Article slug.** Will be extracted from your text file name, file extension excluded.
@@ -53,7 +53,7 @@ your personal token string, please visit the url <https://smol.pub/settings> fro
 
 ### A valid article structure
 
-In order for the script to recognize the title and the body of your article, you will have to structure your 
+In order for the tool to recognize the title and the body of your article, you will have to structure your 
 text file by entering a '#' character as the first character on the first line of your file, then an empty 
 string as the second line of your file. Any line following the first two will be considered part of your 
 article body.
@@ -71,4 +71,4 @@ assumenda est, omnis dolor repellendus.
 
 ## Known limitations
 
-At the moment, this script does not support the upload of images or other media files.
+At the moment, this tool does not support the upload of images or other media files.

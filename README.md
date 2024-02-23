@@ -32,8 +32,8 @@ Where `<article-to-upload>` is a valid path to a text file on your computer.
 
 *Example:*
 ```sh
-$ printf "# This is a test article\n\nHello world, this is the body" > article.gemtext
-$ smolpub article.gemtext
+$ printf "# This is a test article\n\nHello world, this is the body" > article.gmi
+$ smolpub article.gmi
 ```
 
 The tool will extract this data from your text file:

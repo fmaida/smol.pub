@@ -1,4 +1,3 @@
-# Version 1.0 
 from pathlib import Path
 from os.path import basename, isfile
 import subprocess
@@ -24,7 +23,12 @@ def load_token():
     """
     
     config_path = Path.home() / ".config" / ".smolpub"
-    if not isfile(config_path):
+    if not isfile(config_path):                
+        print(f"Token file not found. Please add a valid "
+              + f"token string under \"{config_path}\". "
+              + "To obtain a token string, please visit "
+              + "https://smol.pub/settings",
+              file=sys.stderr)
         raise FileNotFoundError(f"{config_path} does not exist")
     with open(config_path, "r") as f:
         token = f.read().strip()
@@ -37,8 +41,13 @@ def open_validate_article(filename):
     """
     
     # Load the article from the file
-    with open(filename, "r") as f:
-        lines = f.readlines()
+    try:    
+        with open(filename, "r") as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"Article file \"{filename}\" not found.",
+              file=sys.stderr)
+        raise FileNotFoundError(f"{filename} does not exist")
     
     # Extract the title from the first line
     title = lines[0][1:].strip()
@@ -66,7 +75,11 @@ def upload_article(title, slug, content):
     Uploads an article to smol.pub server
     """
 
-    token = load_token()
+    try:
+        token = load_token()
+    except FileNotFoundError:
+        sys.exit(1)
+
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     cookies = {"smolpub": token}
     payload = {"title": title, 
@@ -95,21 +108,35 @@ def upload_article(title, slug, content):
     else:
         # In any other case of failure,
         # prints the status code and exits
-        print(result.status_code)
+        print(f"Unexpected error: {result.status_code}",
+              file=sys.stderr)
         sys.exit(1)
 
 
-# Check that the user has provided the 
-# correct number of arguments
-if len(sys.argv) < 2:
-    print(f"Usage: {basename(__file__)} <file>")
-    sys.exit(1)
+def app():
 
-# Load the article from the file and verifies its vailidity
-title, slug, content, is_valid = open_validate_article(sys.argv[1])
-if is_valid:    
-    upload_article(title=title, slug=slug, content=content)
-else:
-    print(f"Invalid article: {sys.argv[1]}")
-    sys.exit(1)
-sys.exit(0)
+    # Check that the user has provided the 
+    # correct number of arguments
+    if len(sys.argv) < 2:
+        print(f"Usage: {basename(__file__)} <file>")
+        sys.exit(1)
+
+    # Load the article from the file and verifies its vailidity
+    try:
+        title, slug, content, is_valid = open_validate_article(sys.argv[1])
+    except FileNotFoundError:
+        sys.exit(1)
+
+    if is_valid:    
+        upload_article(title=title, slug=slug, content=content)
+    else:
+        print(f"\"{sys.argv[1]}\" is not a valid article. "
+              + f"A valid article must begin with a '#' symbol "
+              + f"and have an empty second line.",
+              file=sys.stderr)
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    app()

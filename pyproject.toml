@@ -1,0 +1,23 @@
+[project]
+name = "smolpub"
+version = "1.0"
+description = "A script that allows to post a text file to https://smol.pub"
+readme = "README.md"
+license = {text = "MIT License"}
+requires-python = ">=3.8"
+authors = [
+  {name = "Francesco Maida", email = "francesco.maida@gmail.com"}
+]
+maintainers = [
+  {name = "Francesco Maida", email = "francesco.maida@gmail.com"}
+]
+dependencies = [
+  "setuptools", 
+  "requests ~= 2.31"
+]
+
+[project.scripts]
+smolpub = "smolpub:app.app"
+
+[project.urls]
+homepage = "https://github.com/fmaida/smol.pub"

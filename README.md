@@ -1,7 +1,10 @@
 # Command-line tool for uploading your articles to smol.pub
 
 **This is a command-line tool written in python that will allow you to upload your articles to <https://smol.pub> 
-directly from your computer terminal.** For further information about smol.pub, please visit <https://smol.pub/manual>
+directly from your computer terminal.** This tool has been created as an alternative to the existing official bash script 
+created by smol.pub and available at <https://smol.pub/cli>.
+
+For further information about smol.pub, please visit <https://smol.pub/manual>
 
 ## How to install this utility
 

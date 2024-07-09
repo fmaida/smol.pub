@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "smolpub"
-version = "1.0.1.1"
+version = "1.0.2"
 description = "A script that allows to post a text file to https://smol.pub"
 repository = "https://github.com/fmaida/smol.pub"
 readme = "README.md"

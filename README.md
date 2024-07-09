@@ -8,6 +8,22 @@ For further information about smol.pub, please visit <https://smol.pub/manual>
 
 ## How to install this utility
 
+Use PipX to install this command on your computer. 
+In your terminal, please enter this command:
+
+```sh
+pipx install smolpub
+```
+
+Then you will be able to use the command by passing a .gmi file as the file you want to upload. *This is an example of its usage:*
+
+```sh
+smolpub my_new_blog_post.gmi
+```
+
+Alternatively if you don't want or can't use *pipx*, you can install 
+it on your device by doing this:
+
 1. Open your terminal 
 2. Clone this repository or download a copy of it
 3. Change directory to the repository directory

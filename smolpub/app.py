@@ -93,8 +93,14 @@ def upload_article(title, slug, content):
                                cookies=cookies).prepare()
     
     # Tries to send the article as a new post
-    session = requests.Session()
-    result = session.send(request)
+    try:
+        session = requests.Session()
+        result = session.send(request)
+    except requests.exceptions.SSLError:
+        print("A SSL Error has occurred. Unable to connect to the server.",
+              file=sys.stderr)
+        sys.exit(1)
+
     if result.status_code == 500:
         # If the upload fails because the article already 
         # exists, tries to send it again as an update

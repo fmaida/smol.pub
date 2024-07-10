@@ -1,4 +1,5 @@
 from pathlib import Path
+from os import chmod
 from os.path import basename, dirname, isfile
 import subprocess
 import sys
@@ -24,16 +25,33 @@ def load_token():
     located under ~/.config/.smolpub
     """
     
-    config_path = Path.home() / ".config" / ".smolpub"
-    if not isfile(config_path):                
-        print(f"Token file not found. Please add a valid "
-              + f"token string under \"{config_path}\". "
-              + "To obtain a token string, please visit "
-              + "https://smol.pub/settings",
+    config_path = Path.home() / ".config"
+    if not config_path.exists():
+        # Create the directory if it doesn't
+        path.mkdir(config_path, exist_ok=True)
+    config_path = config_path / ".smolpub"
+
+    if not isfile(config_path):
+        print(f"Token file not found. Please obtain a "
+              + "valid token string from https://smol.pub/settings "
+              + "and enter it below:",
               file=sys.stderr)
-        raise FileNotFoundError(f"{config_path} does not exist")
+        print()
+
+        token = input("Token: ")
+        token = token.strip()
+
+        if not token:
+            raise FileNotFoundError(f"{config_path} does not exist")
+
+        with open(config_path, "w") as f:
+            f.write(token)
+        # Only the actual user can read and modify the token
+        chmod(config_path, 0o600)
+
     with open(config_path, "r") as f:
         token = f.read().strip()
+
     return token
 
 def open_validate_article(filename):
@@ -72,15 +90,10 @@ def open_validate_article(filename):
     # and if the article is valid
     return (title, slug, content, is_valid)
 
-def upload_article(title, slug, content):
+def upload_article(token, title, slug, content):
     """
     Uploads an article to smol.pub server
     """
-
-    try:
-        token = load_token()
-    except FileNotFoundError:
-        sys.exit(1)
 
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     cookies = {"smolpub": token}
@@ -123,6 +136,12 @@ def upload_article(title, slug, content):
 
 def app():
 
+    try:
+        token = load_token()
+    except FileNotFoundError:
+        print("Aborting")
+        sys.exit(1)
+
     # Check that the user has provided the 
     # correct number of arguments
     if len(sys.argv) < 2:
@@ -136,7 +155,7 @@ def app():
         sys.exit(1)
 
     if is_valid:    
-        upload_article(title=title, slug=slug, content=content)
+        upload_article(token=token, title=title, slug=slug, content=content)
     else:
         print(f"\"{sys.argv[1]}\" does not contain a valid article. "
               + f"A valid article must begin with a '#' symbol "

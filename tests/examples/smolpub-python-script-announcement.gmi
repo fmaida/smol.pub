@@ -1,15 +1,41 @@
-# I wrote a python script to upload articles to smol.pub
+# I wrote a Python script to upload articles to smol.pub
 
-I wrote a python script to upload articles to smol.pub that can replace the smolpub.sh bash script.
+I was bored, so I wrote a Python script to upload your articles to smol.pub, just like the "smolpub.sh" bash script.
 
-It's still a work-in-progress, but so far it works both for posting new articles and for updating existing articles.
-In fact, I posted this same announcement using my own script.
+It's still a work in progress, but so far, it works for posting new articles and updating existing ones. In fact, I posted this announcement using that script.
 
-It requires Python 3.7 or higher, and requires that you have a copy of the library "requests" installed.
-Plus, just like smolpub.sh, it requires that you have your personal token string written in a file called .smolpub under ~/.config/
+## Installation
 
-If you want try it and tell me if it works or not.
+The easiest way to install it on your computer is to use the "pipx" package manager by entering this command on your terminal:
 
-=> https://gist.github.com/fmaida/349722add0a88f0f749e38715f7ffdd8 This is the python script, hosted on GitHub
+```sh
+pipx install smolpub
+```
+
+The script requires at least Python 3.7 or higher, and just like "smolpub.sh", it requires that you have a copy of your personal token string written in a file called ".smolpub" on a subfolder inside your home directory: 
+
+```
+~/.config/
+```
+
+## Usage
+
+Once the script is installed on your computer, you can invoke it by entering this command in the terminal:
+
+```sh
+smolpub <file to post>
+```
+
+Where "<file to post>" must be a text file formatted in UTF-8 in GemText format. I recommend you use the ".gmi" extension and follow the formatting instructions that you'll find on this page:
+
+=> https://smol.pub/manual Smol.pub Manual
+
+
+If you like it, try it and tell me if it works!
+
+Also, look at this page on GitHub, where you will find further documentation about the script and the full source code:
+
+=> https://github.com/fmaida/smolpub This is the source code of the Python script
+
 
 Cheers!

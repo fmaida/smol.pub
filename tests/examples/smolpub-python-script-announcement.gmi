@@ -12,7 +12,7 @@ The easiest way to install it on your computer is to use the "pipx" package mana
 pipx install smolpub
 ```
 
-The script requires at least Python 3.7 or higher, and just like "smolpub.sh", it requires that you have a copy of your personal token string written in a file called ".smolpub" on a subfolder inside your home directory: 
+The script requires at least Python 3.10 or higher, and just like "smolpub.sh", it requires that you have a copy of your personal token string written in a file called ".smolpub" on a subfolder inside your home directory: 
 
 ```
 ~/.config/
@@ -30,12 +30,21 @@ Where "<file to post>" must be a text file formatted in UTF-8 in GemText format.
 
 => https://smol.pub/manual Smol.pub Manual
 
+## Launching the script for the first time
+
+The very first time, the script will ask you to provide a valid API Token for accessing smol.pub. If you don't know how to fetch one yet, please visit:
+
+=> http://smol.pub/settings
+
+And copy the API Token and paste it into your terminal, then press ENTER. The script will create a config file for you and will make it accessible only by your actual username.
+
+### And that's how the script works, more or less
 
 If you like it, try it and tell me if it works!
 
 Also, look at this page on GitHub, where you will find further documentation about the script and the full source code:
 
-=> https://github.com/fmaida/smolpub This is the source code of the Python script
+=> https://github.com/fmaida/smolpub Source code on github.com
 
 
 Cheers!
